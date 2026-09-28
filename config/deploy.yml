@@ -1,0 +1,28 @@
+service: counter
+image: gecm0/counter
+
+servers:
+  web:
+    - 130.110.232.65
+
+proxy:
+  ssl: true
+  host: counter.gecm.dev
+  app_port: 4000
+  healthcheck:
+    path: /up
+
+registry:
+  server: ghcr.io
+  username: gecm0
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  clear:
+    PHX_HOST: counter.gecm.dev
+  secret:
+    - SECRET_KEY_BASE
+
+builder:
+  arch: arm64
