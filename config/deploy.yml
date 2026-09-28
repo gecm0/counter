@@ -26,3 +26,5 @@ env:
 
 builder:
   arch: arm64
+  # Single-manifest image, so GHCR reads the Dockerfile's source label and links the package to the repo.
+  provenance: false
